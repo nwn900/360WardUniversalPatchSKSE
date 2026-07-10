@@ -1,4 +1,4 @@
-# WardVisualForwarder
+# 360WardUniversalPatchSKSE
 
 This CommonLibSSE-NG SKSE plugin scans the final loaded `EffectSetting` records at `kDataLoaded` and forwards ward-related art fields to the vanilla ward ArtObjects used by 360 Ward:
 
@@ -18,14 +18,14 @@ The compiled binary is built with the live CommonLibSSE-NG source tree with Skyr
 
 Source code: https://github.com/nwn900/WardVisualForwarder
 
-The GitHub release is a plain SKSE archive containing `SKSE/Plugins/WardVisualForwarder.dll`. The local FOMOD staging files are not part of the release.
+The GitHub release is a plain SKSE archive containing `SKSE/Plugins/360WardUniversalPatchSKSE.dll`. The local FOMOD staging files are not part of the release.
 
 ## Build
 
 1. Clone the repository and initialize the CommonLibSSE-NG submodule: `git submodule update --init --recursive`.
 2. Bootstrap `tools/vcpkg`.
 3. Configure with the Visual Studio x64 generator and `tools/vcpkg/scripts/buildsystems/vcpkg.cmake`.
-4. Build `WardVisualForwarder` in Release.
-5. Run the `WardVisualForwarderPolicyTests` CTest test.
+4. Build `360WardUniversalPatchSKSE` in Release.
+5. Run the `360WardUniversalPatchSKSEPolicyTests` CTest test.
 
 The release archive is created outside the game directory from the resulting DLL.
