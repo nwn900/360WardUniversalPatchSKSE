@@ -1,9 +1,9 @@
-[center][h1]360 Ward - WardVisualForwarder[/h1]
-[url=https://github.com/nwn900/WardVisualForwarder]GitHub source repository[/url][/center]
+[center][h1]360 Ward Universal Patch SKSE[/h1]
+[url=https://github.com/nwn900/360WardUniversalPatchSKSE]GitHub source repository[/url][/center]
 
 [h2]What this mod does[/h2]
 
-WardVisualForwarder is an SKSE DLL for [url=https://www.nexusmods.com/skyrimspecialedition]Skyrim[/url] that carries the 360 Ward look into other mods that use ward Magic Effects.
+360 Ward Universal Patch SKSE is an SKSE DLL for [url=https://www.nexusmods.com/skyrimspecialedition]Skyrim[/url] that carries the 360 Ward look into other mods that use ward Magic Effects.
 
 At runtime, it checks the final load-order ward ArtObject fields and forwards matching effects to the ward records used by 360 Ward. It also reproduces the visual part of the original mod's SphereWard pulse for matching wards. The native path listens for OnWardHit and OnHit, reads the event's facing reference, and applies the 360 Ward pulse with the same target-facing behavior.
 
@@ -27,8 +27,8 @@ The DLL does not write to saves, add records to a save, or edit the original plu
 
 [list=1]
 [*]Install 360 Ward and any retexture you want to use.
-[*]Download the plain archive from the [url=https://github.com/nwn900/WardVisualForwarder/releases]GitHub Releases page[/url].
-[*]Install the archive with Mod Organizer 2, Vortex, or by extracting it into the game's Data folder. Keep the archive paths intact so the DLL ends up at [font=Courier New]Data/SKSE/Plugins/WardVisualForwarder.dll[/font].
+[*]Download [font=Courier New]360WardUniversalPatchSKSE.zip[/font] from the [url=https://github.com/nwn900/360WardUniversalPatchSKSE/releases]GitHub Releases page[/url].
+[*]Install the archive with Mod Organizer 2, Vortex, or by extracting it into the game's Data folder. Keep the archive paths intact so the DLL ends up at [font=Courier New]Data/SKSE/Plugins/360WardUniversalPatchSKSE.dll[/font].
 [*]Start Skyrim through SKSE or SKSEVR.
 [/list]
 
@@ -52,4 +52,4 @@ Disable or remove the mod from your mod manager. No save cleaning is required be
 
 [h2]Source and issue reports[/h2]
 
-[url=https://github.com/nwn900/WardVisualForwarder]Source code, builds, and issue tracker[/url]
+[url=https://github.com/nwn900/360WardUniversalPatchSKSE]Source code, builds, and issue tracker[/url]

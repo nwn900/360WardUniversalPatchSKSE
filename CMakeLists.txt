@@ -2,8 +2,8 @@
 # If you use CMake features from higher versions, update this to match.
 cmake_minimum_required(VERSION 3.25)
 
-# Set your project name. This will be the name of your SKSE .dll file.
-project(WardVisualForwarder VERSION 0.1.0 LANGUAGES CXX)
+# Technical project/target identifier. The published DLL name is configured below.
+project(WardUniversalPatchSKSE VERSION 0.1.0 LANGUAGES CXX)
 
 # #
 # YOU DO NOT NEED TO EDIT ANYTHING BELOW HERE
@@ -24,7 +24,7 @@ endif()
 # To do this automatically, set the `SKYRIM_MODS_FOLDER` environment variable
 # to the path of your "mods" folder
 if(DEFINED ENV{SKYRIM_MODS_FOLDER} AND IS_DIRECTORY "$ENV{SKYRIM_MODS_FOLDER}")
-    set(OUTPUT_FOLDER "$ENV{SKYRIM_MODS_FOLDER}/${PROJECT_NAME}")
+    set(OUTPUT_FOLDER "$ENV{SKYRIM_MODS_FOLDER}/360 Ward Universal Patch SKSE")
 endif()
 
 # Otherwise, you can set OUTPUT_FOLDER to any place you'd like :)
@@ -40,19 +40,20 @@ set(SKSE_SUPPORT_XBYAK OFF CACHE BOOL "Do not enable unused Xbyak support" FORCE
 add_subdirectory(lib/commonlibsse-ng commonlib EXCLUDE_FROM_ALL)
 include(lib/commonlibsse-ng/cmake/CommonLibSSE.cmake)
 add_commonlibsse_plugin(${PROJECT_NAME}
-    AUTHOR "WardVisualForwarder"
+    AUTHOR "nwn900"
     VERSION ${PROJECT_VERSION}
     SOURCES plugin.cpp)
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "360WardUniversalPatchSKSE")
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_23) # <--- use C++23 standard
 target_precompile_headers(${PROJECT_NAME} PRIVATE PCH.h) # <--- PCH.h is required!
 target_compile_options(${PROJECT_NAME} PRIVATE /permissive- /Zc:preprocessor /EHsc /W4)
 
 include(CTest)
 if(BUILD_TESTING)
-    add_executable(WardVisualForwarderPolicyTests EXCLUDE_FROM_ALL tests/ward_policy_tests.cpp)
-    target_compile_features(WardVisualForwarderPolicyTests PRIVATE cxx_std_23)
-    target_include_directories(WardVisualForwarderPolicyTests PRIVATE src)
-    add_test(NAME WardVisualForwarderPolicyTests COMMAND WardVisualForwarderPolicyTests)
+    add_executable(WardUniversalPatchSKSEPolicyTests EXCLUDE_FROM_ALL tests/ward_policy_tests.cpp)
+    target_compile_features(WardUniversalPatchSKSEPolicyTests PRIVATE cxx_std_23)
+    target_include_directories(WardUniversalPatchSKSEPolicyTests PRIVATE src)
+    add_test(NAME WardUniversalPatchSKSEPolicyTests COMMAND WardUniversalPatchSKSEPolicyTests)
 endif()
 
 # When your SKSE .dll is compiled, this will automatically copy the .dll into your mods folder.

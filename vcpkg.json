@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
-    "name": "ward-visual-forwarder",
+    "name": "360-ward-universal-patch-skse",
     "version-string": "0.1.0",
     "dependencies": [
         {

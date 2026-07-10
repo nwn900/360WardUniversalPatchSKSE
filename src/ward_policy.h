@@ -2,7 +2,7 @@
 
 #include <string_view>
 
-namespace WardVisualForwarder
+namespace WardUniversalPatchSKSE
 {
 	struct EffectVisualSummary
 	{

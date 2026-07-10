@@ -1,4 +1,4 @@
-# 360WardUniversalPatchSKSE
+# 360 Ward Universal Patch SKSE
 
 This CommonLibSSE-NG SKSE plugin scans the final loaded `EffectSetting` records at `kDataLoaded` and forwards ward-related art fields to the vanilla ward ArtObjects used by 360 Ward:
 
@@ -16,16 +16,16 @@ The pulse is queued through SKSE's main-thread task interface before applying th
 
 The compiled binary is built with the live CommonLibSSE-NG source tree with Skyrim SE, AE, and VR targets enabled in one DLL. Address Library for the target runtime and SKSE/VR SKSE remain end-user requirements.
 
-Source code: https://github.com/nwn900/WardVisualForwarder
+Source code: https://github.com/nwn900/360WardUniversalPatchSKSE
 
-The GitHub release is a plain SKSE archive containing `SKSE/Plugins/360WardUniversalPatchSKSE.dll`. The local FOMOD staging files are not part of the release.
+The GitHub release archive is named `360WardUniversalPatchSKSE.zip` and contains `SKSE/Plugins/360WardUniversalPatchSKSE.dll`. The local FOMOD staging files are not part of the release.
 
 ## Build
 
 1. Clone the repository and initialize the CommonLibSSE-NG submodule: `git submodule update --init --recursive`.
 2. Bootstrap `tools/vcpkg`.
 3. Configure with the Visual Studio x64 generator and `tools/vcpkg/scripts/buildsystems/vcpkg.cmake`.
-4. Build `360WardUniversalPatchSKSE` in Release.
-5. Run the `360WardUniversalPatchSKSEPolicyTests` CTest test.
+4. Build `WardUniversalPatchSKSE` in Release.
+5. Run the `WardUniversalPatchSKSEPolicyTests` CTest test.
 
-The release archive is created outside the game directory from the resulting DLL.
+The release archive is created outside the game directory from the resulting DLL and published as `360WardUniversalPatchSKSE.zip`.

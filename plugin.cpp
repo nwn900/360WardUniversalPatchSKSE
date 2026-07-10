@@ -186,7 +186,7 @@ namespace
 
 			WardEffectVisitor visitor(policy);
 			magicTarget->VisitEffects(visitor);
-			if (!WardVisualForwarder::ShouldPlayNativePulse(visitor.hasNativeCandidate, visitor.hasSphereWardScript)) {
+			if (!WardUniversalPatchSKSE::ShouldPlayNativePulse(visitor.hasNativeCandidate, visitor.hasSphereWardScript)) {
 				return;
 			}
 
@@ -207,7 +207,7 @@ namespace
 		const RE::BSFixedString& a_eventName,
 		RE::BSScript::IFunctionArguments* a_args)
 	{
-		if (!a_vm || !g_wardShieldPulse || !WardVisualForwarder::IsWardPulseEvent(a_eventName.c_str())) {
+		if (!a_vm || !g_wardShieldPulse || !WardUniversalPatchSKSE::IsWardPulseEvent(a_eventName.c_str())) {
 			return;
 		}
 
@@ -290,14 +290,14 @@ namespace
 			++stats.scanned;
 
 			const auto& effectData = effect->data;
-			const WardVisualForwarder::EffectVisualSummary summary{
+			const WardUniversalPatchSKSE::EffectVisualSummary summary{
 				.wardPower = effectData.primaryAV == RE::ActorValue::kWardPower,
 				.castingReferencesWard = IsWardArt(effectData.castingArt, wardInHand, wardHit, ward360Hit),
 				.hitReferencesWard = IsWardArt(effectData.hitEffectArt, wardInHand, wardHit, ward360Hit),
 				.enchantReferencesWard = IsWardArt(effectData.enchantEffectArt, wardInHand, wardHit, ward360Hit)
 			};
 
-			if (!WardVisualForwarder::ShouldForward(summary)) {
+			if (!WardUniversalPatchSKSE::ShouldForward(summary)) {
 				continue;
 			}
 			++stats.forwarded;
@@ -334,7 +334,7 @@ SKSEPluginLoad(const SKSE::LoadInterface* a_skse)
 		const auto stats = ForwardWardVisuals();
 		const auto pulseHookInstalled = InstallPulseHook();
 		SKSE::log::info(
-			"WardVisualForwarder: scanned {}, forwarded {}, casting {}, hit {}, enchant {}, native pulse hook {}",
+			"360 Ward Universal Patch SKSE: scanned {}, forwarded {}, casting {}, hit {}, enchant {}, native pulse hook {}",
 			stats.scanned,
 			stats.forwarded,
 			stats.casting,

@@ -4,10 +4,10 @@
 
 int main()
 {
-	using WardVisualForwarder::EffectVisualSummary;
-	using WardVisualForwarder::IsWardPulseEvent;
-	using WardVisualForwarder::ShouldPlayNativePulse;
-	using WardVisualForwarder::ShouldForward;
+	using WardUniversalPatchSKSE::EffectVisualSummary;
+	using WardUniversalPatchSKSE::IsWardPulseEvent;
+	using WardUniversalPatchSKSE::ShouldPlayNativePulse;
+	using WardUniversalPatchSKSE::ShouldForward;
 
 	assert(ShouldForward(EffectVisualSummary{ .wardPower = true }));
 	assert(ShouldForward(EffectVisualSummary{ .hitReferencesWard = true }));
