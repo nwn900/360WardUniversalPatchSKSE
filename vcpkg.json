@@ -1,0 +1,20 @@
+{
+    "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+    "name": "ward-visual-forwarder",
+    "version-string": "0.1.0",
+    "dependencies": [
+        {
+            "name": "vcpkg-cmake-config",
+            "host": true
+        },
+        "directxmath",
+        "directxtk",
+        "fmt",
+        "nlohmann-json",
+        "rapidcsv",
+        "simpleini",
+        "spdlog",
+        "toml11",
+        "xbyak"
+    ]
+}

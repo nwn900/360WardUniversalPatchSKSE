@@ -1,0 +1,55 @@
+[center][h1]360 Ward - WardVisualForwarder[/h1]
+[url=https://github.com/nwn900/WardVisualForwarder]GitHub source repository[/url][/center]
+
+[h2]What this mod does[/h2]
+
+WardVisualForwarder is an SKSE DLL for [url=https://www.nexusmods.com/skyrimspecialedition]Skyrim[/url] that carries the 360 Ward look into other mods that use ward Magic Effects.
+
+At runtime, it checks the final load-order ward ArtObject fields and forwards matching effects to the ward records used by 360 Ward. It also reproduces the visual part of the original mod's SphereWard pulse for matching wards. The native path listens for OnWardHit and OnHit, reads the event's facing reference, and applies the 360 Ward pulse with the same target-facing behavior.
+
+The patch works with any retexture of 360 Ward. It uses the final 360 Ward records from the load order, so the retexture's model and texture paths remain in control.
+
+[h2]Assets and save safety[/h2]
+
+This mod contains code only. It does not include, copy, or replace any NIF, texture, animation, sound, ESP, ESM, or ESL assets from 360 Ward.
+
+The DLL does not write to saves, add records to a save, or edit the original plugin. It changes pointers in memory while Skyrim is running. Removing or disabling the DLL leaves no persistent patch behind, so it cannot brick a save through permanent changes.
+
+[h2]Requirements[/h2]
+
+[list]
+[*]The original [b]360 Ward[/b] mod, with its plugin enabled.
+[*]SKSE for your game runtime. VR users need SKSEVR.
+[*]Address Library for the installed SE or AE runtime. VR users need the matching VR address support required by their SKSE setup.
+[/list]
+
+[h2]Installation[/h2]
+
+[list=1]
+[*]Install 360 Ward and any retexture you want to use.
+[*]Download the plain archive from the [url=https://github.com/nwn900/WardVisualForwarder/releases]GitHub Releases page[/url].
+[*]Install the archive with Mod Organizer 2, Vortex, or by extracting it into the game's Data folder. Keep the archive paths intact so the DLL ends up at [font=Courier New]Data/SKSE/Plugins/WardVisualForwarder.dll[/font].
+[*]Start Skyrim through SKSE or SKSEVR.
+[/list]
+
+The release archive is a standard SKSE archive. It is not a FOMOD and has no installer choices.
+
+[h2]Compatibility[/h2]
+
+The same CommonLibSSE-NG DLL supports:
+
+[list]
+[*]Skyrim Special Edition
+[*]Skyrim Anniversary Edition
+[*]Skyrim VR
+[/list]
+
+The original 360 Ward plugin must be active. The DLL is load-order aware and covers mods whose ward Magic Effects point to vanilla ward visuals or the known 360 Ward ArtObjects. It does not require a separate patch ESP for each mod.
+
+[h2]Uninstallation[/h2]
+
+Disable or remove the mod from your mod manager. No save cleaning is required because the DLL makes no persistent save or plugin edits.
+
+[h2]Source and issue reports[/h2]
+
+[url=https://github.com/nwn900/WardVisualForwarder]Source code, builds, and issue tracker[/url]

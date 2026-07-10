@@ -1,0 +1,11 @@
+.idea
+.vs
+.vscode/settings.json
+build
+cmake-build*
+tools
+vcpkg_installed
+package
+WardVisualForwarder_FOMOD
+WardVisualForwarder_FOMOD.zip
+release
