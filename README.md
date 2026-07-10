@@ -16,9 +16,7 @@ The pulse is queued through SKSE's main-thread task interface before applying th
 
 The compiled binary is built with the live CommonLibSSE-NG source tree with Skyrim SE, AE, and VR targets enabled in one DLL. Address Library for the target runtime and SKSE/VR SKSE remain end-user requirements.
 
-Source code: https://github.com/nwn900/WardVisualForwarder
-
-The GitHub release is a plain SKSE archive containing `SKSE/Plugins/360WardUniversalPatchSKSE.dll`. The local FOMOD staging files are not part of the release.
+The GitHub release is a plain SKSE archive containing `SKSE/Plugins/360WardUniversalPatchSKSE.dll`.
 
 ## Build
 
