@@ -27,8 +27,8 @@ The DLL does not write to saves, add records to a save, or edit the original plu
 
 [list=1]
 [*]Install 360 Ward and any retexture you want to use.
-[*]Download [font=Courier New]360WardUniversalPatchSKSE.zip[/font] from the [url=https://github.com/nwn900/360WardUniversalPatchSKSE/releases]GitHub Releases page[/url].
-[*]Install the archive with Mod Organizer 2, Vortex, or by extracting it into the game's Data folder. Keep the archive paths intact so the DLL ends up at [font=Courier New]Data/SKSE/Plugins/360WardUniversalPatchSKSE.dll[/font].
+[*]Download 360WardUniversalPatchSKSE.zip from the [url=https://github.com/nwn900/360WardUniversalPatchSKSE/releases]GitHub Releases page[/url].
+[*]Install the archive with Mod Organizer 2, Vortex, or by extracting it into the game's Data folder. Keep the archive paths intact so the DLL ends up at Data/SKSE/Plugins/360WardUniversalPatchSKSE.dll.
 [*]Start Skyrim through SKSE or SKSEVR.
 [/list]
 
