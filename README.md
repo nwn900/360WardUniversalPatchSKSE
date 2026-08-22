@@ -16,6 +16,10 @@ The pulse is queued through SKSE's main-thread task interface before applying th
 
 The compiled binary is built with the live CommonLibSSE-NG source tree with Skyrim SE, AE, and VR targets enabled in one DLL. Address Library for the target runtime and SKSE/VR SKSE remain end-user requirements.
 
+### Runtime support
+
+Supports SE 1.5.x, all AE runtimes including the latest 1.7.99 update, and VR. Skyrim AE 1.7.99 requires Address Library `versionlib-1-7-99-0.bin` (format 5); CommonLibSSE-NG 6.5.0+ resolves it at load time with no plugin rebuild.
+
 The GitHub release is a plain SKSE archive containing `SKSE/Plugins/360WardUniversalPatchSKSE.dll`.
 
 ## Build
