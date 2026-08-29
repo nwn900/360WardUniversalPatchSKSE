@@ -3,7 +3,7 @@
 cmake_minimum_required(VERSION 3.25)
 
 # Set your project name. This will be the name of your SKSE .dll file.
-project(WardVisualForwarder VERSION 0.1.0 LANGUAGES CXX)
+project(360WardUniversalPatchSKSE VERSION 1.2.0 LANGUAGES CXX)
 
 # #
 # YOU DO NOT NEED TO EDIT ANYTHING BELOW HERE
@@ -49,10 +49,10 @@ target_compile_options(${PROJECT_NAME} PRIVATE /permissive- /Zc:preprocessor /EH
 
 include(CTest)
 if(BUILD_TESTING)
-    add_executable(WardVisualForwarderPolicyTests EXCLUDE_FROM_ALL tests/ward_policy_tests.cpp)
-    target_compile_features(WardVisualForwarderPolicyTests PRIVATE cxx_std_23)
-    target_include_directories(WardVisualForwarderPolicyTests PRIVATE src)
-    add_test(NAME WardVisualForwarderPolicyTests COMMAND WardVisualForwarderPolicyTests)
+    add_executable(360WardUniversalPatchSKSEPolicyTests EXCLUDE_FROM_ALL tests/ward_policy_tests.cpp)
+    target_compile_features(360WardUniversalPatchSKSEPolicyTests PRIVATE cxx_std_23)
+    target_include_directories(360WardUniversalPatchSKSEPolicyTests PRIVATE src)
+    add_test(NAME 360WardUniversalPatchSKSEPolicyTests COMMAND 360WardUniversalPatchSKSEPolicyTests)
 endif()
 
 # When your SKSE .dll is compiled, this will automatically copy the .dll into your mods folder.
