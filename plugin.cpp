@@ -64,6 +64,18 @@ namespace
 			IsWardArt(data.enchantEffectArt, g_wardInHand, g_wardHit, g_ward360Hit);
 	}
 
+	[[nodiscard]] bool UsesForwardedWardArt(const EffectSetting* a_effect) noexcept
+	{
+		if (!a_effect) {
+			return false;
+		}
+
+		const auto& data = a_effect->data;
+		return IsWardArt(data.castingArt, g_wardInHand, g_wardHit, g_ward360Hit) ||
+			IsWardArt(data.hitEffectArt, g_wardInHand, g_wardHit, g_ward360Hit) ||
+			IsWardArt(data.enchantEffectArt, g_wardInHand, g_wardHit, g_ward360Hit);
+	}
+
 	[[nodiscard]] bool HasSphereWardScript(const RE::ActiveEffect* a_effect, const RE::BSScript::IObjectHandlePolicy* a_policy)
 	{
 		if (!a_effect || !a_policy) {
@@ -107,7 +119,7 @@ namespace
 		RE::BSContainer::ForEachResult Accept(RE::ActiveEffect* a_effect) override
 		{
 			const auto* baseEffect = a_effect ? a_effect->GetBaseObject() : nullptr;
-			if (!IsWardEffect(baseEffect)) {
+			if (!IsWardEffect(baseEffect) || !UsesForwardedWardArt(baseEffect)) {
 				return RE::BSContainer::ForEachResult::kContinue;
 			}
 
@@ -302,13 +314,13 @@ namespace
 			}
 			++stats.forwarded;
 
-			// Preserve the vanilla ward slot semantics: casting art is the
-			// in-hand visual and hit art is the 360 Ward sphere visual.
-			if (summary.wardPower || summary.castingReferencesWard) {
+			// Preserve explicitly custom art from other mods. Empty ward slots and
+			// known vanilla/360 Ward ArtObjects are still forwarded as before.
+			if (WardVisualForwarder::ShouldReplaceArt(summary.wardPower, effectData.castingArt != nullptr, summary.castingReferencesWard)) {
 				effect->data.castingArt = wardInHand;
 				++stats.casting;
 			}
-			if (summary.wardPower || summary.hitReferencesWard) {
+			if (WardVisualForwarder::ShouldReplaceArt(summary.wardPower, effectData.hitEffectArt != nullptr, summary.hitReferencesWard)) {
 				effect->data.hitEffectArt = wardHit;
 				++stats.hit;
 			}

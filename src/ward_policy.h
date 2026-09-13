@@ -20,6 +20,14 @@ namespace WardVisualForwarder
 			a_summary.enchantReferencesWard;
 	}
 
+	[[nodiscard]] constexpr bool ShouldReplaceArt(
+		const bool a_wardPower,
+		const bool a_hasArt,
+		const bool a_referencesWard) noexcept
+	{
+		return a_referencesWard || (a_wardPower && !a_hasArt);
+	}
+
 	[[nodiscard]] constexpr bool IsWardPulseEvent(const std::string_view a_eventName) noexcept
 	{
 		return a_eventName == "OnWardHit" || a_eventName == "OnHit";
