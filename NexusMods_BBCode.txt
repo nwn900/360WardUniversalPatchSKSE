@@ -7,6 +7,8 @@
 
 At runtime, it checks the final load-order ward ArtObject fields and forwards matching effects to the ward records used by 360 Ward. It also reproduces the visual part of the original mod's SphereWard pulse for matching wards. The native path listens for OnWardHit and OnHit, reads the event's facing reference, and applies the 360 Ward pulse with the same target-facing behavior.
 
+If another mod assigns a custom casting or hit ArtObject to a WardPower effect, this patch preserves that field. Empty ward slots and known vanilla/360 Ward ArtObjects are still forwarded, and fully custom ward visuals do not receive the native 360 Ward pulse.
+
 The patch works with any retexture of 360 Ward. It uses the final 360 Ward records from the load order, so the retexture's model and texture paths remain in control.
 
 [h2]Assets and save safety[/h2]

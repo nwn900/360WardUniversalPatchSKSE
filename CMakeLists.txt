@@ -3,7 +3,7 @@
 cmake_minimum_required(VERSION 3.25)
 
 # Set your project name. This will be the name of your SKSE .dll file.
-project(360WardUniversalPatchSKSE VERSION 1.2.0 LANGUAGES CXX)
+project(360WardUniversalPatchSKSE VERSION 1.3.0 LANGUAGES CXX)
 
 # #
 # YOU DO NOT NEED TO EDIT ANYTHING BELOW HERE

@@ -8,11 +8,13 @@ This CommonLibSSE-NG SKSE plugin scans the final loaded `EffectSetting` records 
 
 The scan is load-order independent. It identifies ward MGEFs by `WardPower` and also catches records that still reference the known vanilla/360 Ward ArtObjects. It does not edit ESP/ESM files, the Skyrim installation, a save, or an MO2 profile.
 
+When a `WardPower` effect already supplies a custom casting or hit `BGSArtObject`, that field is preserved for the owning mod. Empty slots and known vanilla/360 Ward ArtObjects are still forwarded. Effects whose relevant visual fields are all custom do not receive the native 360 Ward pulse; an effect that retains known or forwarded ward art remains eligible for it.
+
 ## Native pulse reproduction
 
 The DLL also reproduces the relevant `SphereWard` behavior in native code. It hooks CommonLibSSE-NG's concrete Papyrus VM `SendEvent` vtable entry using the documented SE/AE and VR indices, observes actor-level `OnWardHit` and `OnHit` dispatch, extracts the first `ObjectReference` argument, and calls the 360 Ward pulse ArtObject with the equivalent facing-target semantics.
 
-The pulse is queued through SKSE's main-thread task interface before applying the ArtObject. If an active matching ward already has the exact `SphereWard` script attached, the DLL defers to that script so it does not double-play the pulse. Other matching wards receive the native pulse without VMAD injection. This reproduces the script's visual behavior; it does not add Papyrus properties or scripts to records.
+The pulse is queued through SKSE's main-thread task interface before applying the ArtObject. The native candidate check only considers active ward effects that use known or forwarded ward ArtObjects. If an active matching ward already has the exact `SphereWard` script attached, the DLL defers to that script so it does not double-play the pulse. Other matching wards receive the native pulse without VMAD injection. This reproduces the script's visual behavior; it does not add Papyrus properties or scripts to records.
 
 The compiled binary is built with the live CommonLibSSE-NG source tree with Skyrim SE, AE, and VR targets enabled in one DLL. Address Library for the target runtime and SKSE/VR SKSE remain end-user requirements.
 
